@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "104550463707",
+    "project_id": "techtitans-4ca70",
+    "storage_bucket": "techtitans-4ca70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104550463707:android:b3703cfa4018a50165f4fe",
+        "android_client_info": {
+          "package_name": "com.example.techtitans"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA43j7SJtkg2J6dzITTy47yTdl33oJ2IX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
