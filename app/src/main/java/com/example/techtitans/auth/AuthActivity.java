@@ -48,7 +48,7 @@ public class AuthActivity extends AppCompatActivity {
     private void doPreferenceManager(){
         preferenceManager = new PreferenceManager(getApplicationContext());
         if(preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)){
-            Intent intent = new Intent(getApplicationContext(), GameRulesActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ConversationActivity.class);
             startActivity(intent);
             finish();
         }
@@ -83,7 +83,7 @@ public class AuthActivity extends AppCompatActivity {
                         preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
                         preferenceManager.putString(Constants.KEY_USER_ID, documentSnapshot.getId());
                         preferenceManager.putString(Constants.KEY_NAME, documentSnapshot.getString(Constants.KEY_NAME));
-                        Intent intent = new Intent(getApplicationContext(), GameRulesActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), ConversationActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         finish();
