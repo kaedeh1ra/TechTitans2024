@@ -48,7 +48,7 @@ public class AuthActivity extends AppCompatActivity {
     private void doPreferenceManager(){
         preferenceManager = new PreferenceManager(getApplicationContext());
         if(preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)){
-            Intent intent = new Intent(getApplicationContext(), ConversationActivity.class);
+            Intent intent = new Intent(getApplicationContext(), StartGameRulesActivity.class);
             startActivity(intent);
             finish();
         }
