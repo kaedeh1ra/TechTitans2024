@@ -16,8 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.techtitans.Ai;
-import com.example.techtitans.R;
+
 import com.example.techtitans.adapters.ChatAdapter;
 import com.example.techtitans.classes.ChatMessage;
 import com.example.techtitans.classes.User;
@@ -89,7 +88,6 @@ public class ChatActivity extends AppCompatActivity {
         message.put(Constants.KEY_RECEIVER_ID, receivedUser.id);
         message.put(Constants.KEY_MESSAGE, binding.inputMessage.getText().toString());
         message.put(Constants.KEY_TIMESTAMP, new Date());
-        message.put(Constants.KEY_SUCCESS, Ai.trainAndPredict());
         database.collection(Constants.KEY_COLLECTION_CHAT).add(message);
         if (conversationId != null) {
             updateConversation(binding.inputMessage.getText().toString());

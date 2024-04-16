@@ -19,9 +19,6 @@
             android:name=".auth.GameRulesActivity"
             android:exported="false" />
         <activity
-            android:name=".content_activities.AII"
-            android:exported="false" />
-        <activity
             android:name=".content_activities.BotsActivity"
             android:exported="false" />
         <activity
