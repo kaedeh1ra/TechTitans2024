@@ -50,6 +50,7 @@ public class BotsActivity extends AppCompatActivity implements UserListener {
     private void getUsers(){
         loading(true);
         FirebaseFirestore database = FirebaseFirestore.getInstance();
+        String currentUserId = preferenceManager.getString(Constants.KEY_USER_ID);
         database.collection(Constants.KEY_COLLECTION_USERS)
                 .get()
                 .addOnCompleteListener(task -> {
@@ -57,11 +58,14 @@ public class BotsActivity extends AppCompatActivity implements UserListener {
                     if(task.isSuccessful() && task.getResult() != null){
                         List<User> users = new ArrayList<>();
                         for (QueryDocumentSnapshot queryDocumentSnapshot: task.getResult()){
+                            if(!queryDocumentSnapshot.getId().equals(currentUserId)){
                                 User user = new User();
                                 user.name = queryDocumentSnapshot.getString(Constants.KEY_NAME);
                                 user.token = queryDocumentSnapshot.getString(Constants.KEY_FCM_TOKEN);
                                 user.id = queryDocumentSnapshot.getId();
                                 users.add(user);
+                            }
+
                         }
                         if(users.size()>0){
                             UsersAdapter usersAdapter = new UsersAdapter(users, this);

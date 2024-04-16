@@ -55,9 +55,11 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        init();
         loadUserDetails();
         getToken();
         setListeners();
+        listenConversations();
     }
     private void init(){
         conversations = new ArrayList<>();
@@ -78,9 +80,9 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
     private void listenConversations(){
-        database.collection(Constants.KEY_COLLECTION_CONVERSATIONS)
-                .whereEqualTo(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
-                .addSnapshotListener(eventListener);
+//        database.collection(Constants.KEY_COLLECTION_CONVERSATIONS)
+//                .whereEqualTo(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
+//                .addSnapshotListener(eventListener);
         database.collection(Constants.KEY_COLLECTION_CONVERSATIONS)
                 .whereEqualTo(Constants.KEY_RECEIVER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
                 .addSnapshotListener(eventListener);
@@ -163,6 +165,7 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
     @Override
     public void onCoversationClicked(User user) {
         Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(Constants.KEY_USER, user);
         startActivity(intent);
     }
 }

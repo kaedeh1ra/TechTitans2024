@@ -125,14 +125,14 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void listenMessages() {
-//        database.collection(Constants.KEY_COLLECTION_CHAT)
-//                .whereEqualTo(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
-//                .whereEqualTo(Constants.KEY_RECEIVER_ID, receivedUser.id)
-//                .addSnapshotListener(eventListener);
-//        database.collection(Constants.KEY_COLLECTION_CHAT)
-//                .whereEqualTo(Constants.KEY_SENDER_ID, receivedUser.id)
-//                .whereEqualTo(Constants.KEY_RECEIVER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
-//                .addSnapshotListener(eventListener);
+        database.collection(Constants.KEY_COLLECTION_CHAT)
+                .whereEqualTo(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
+                .whereEqualTo(Constants.KEY_RECEIVER_ID, receivedUser.id)
+                .addSnapshotListener(eventListener);
+        database.collection(Constants.KEY_COLLECTION_CHAT)
+                .whereEqualTo(Constants.KEY_SENDER_ID, receivedUser.id)
+                .whereEqualTo(Constants.KEY_RECEIVER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
+                .addSnapshotListener(eventListener);
     }
 
     private final EventListener<QuerySnapshot> eventListener = (value, error) -> {
