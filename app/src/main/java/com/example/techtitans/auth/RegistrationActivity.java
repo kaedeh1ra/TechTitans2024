@@ -37,13 +37,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RegistrationActivity extends BaseActivity {
+public class RegistrationActivity extends AppCompatActivity {
     private ActivityRegistrationBinding binding;
     private PreferenceManager preferenceManager;
-    private String encodedImage;
-    private boolean isUserAgree = false;
-
-    ArrayList<String> adminEmails = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +48,6 @@ public class RegistrationActivity extends BaseActivity {
         setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
         setListeners();
-        adminEmails.add("yungtoxic10@gmail.com");
     }
 
     private void setListeners() {
@@ -104,7 +99,7 @@ public class RegistrationActivity extends BaseActivity {
                     preferenceManager.putString(Constants.KEY_NAME, binding.inputName.getText().toString());
                     preferenceManager.putString(Constants.KEY_PHONE, binding.inputPhoneNumber.getMaskString().toString());
                     preferenceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
-                    Intent intent = new Intent(getApplicationContext(), GameRulesActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ConversationActivity.class);
                     startActivity(intent);
                     finish();
 
