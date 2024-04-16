@@ -59,7 +59,7 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void setListeners(){
-        binding.buttonSignUp.setOnClickListener(v ->
+        binding.buttonSignUp.setOnClickListener(victor ->
                 startActivity(new Intent(getApplicationContext(), RegistrationActivity.class)));
         binding.buttonSignIn.setOnClickListener(view -> {
             if(isValidSignInDetails()){
