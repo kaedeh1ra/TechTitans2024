@@ -1,8 +1,10 @@
 package com.example.techtitans.content_activities;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
@@ -56,6 +58,7 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseFirestore database;
     private String conversationId = null;
     private Boolean isReceiverAvailable = false;
+    private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,6 +178,19 @@ public class ChatActivity extends AppCompatActivity {
     private void setListeners() {
         binding.imageBack.setOnClickListener(view -> onBackPressed());
         binding.layoutSend.setOnClickListener(v -> sendMessage());
+        binding.inputVoice.setOnClickListener(v -> sendVoiceMessage());
+    }
+
+    private void sendVoiceMessage() {
+            startSpeak();
+    }
+
+    public void startSpeak() {
+        Intent intent =  new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); // намерение для вызова формы обработки речи (ОР)
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM); // сюда он слушает и запоминает
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "What can you tell me?");
+        startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE); // вызываем активность ОР
+
     }
 
     private String getReadableDateTime(Date date) {
