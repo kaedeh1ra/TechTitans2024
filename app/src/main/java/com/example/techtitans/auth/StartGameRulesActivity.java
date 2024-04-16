@@ -9,27 +9,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.techtitans.content_activities.ConversationActivity;
 import com.example.techtitans.databinding.ActivityStartGameRulesBinding;
+import com.example.techtitans.utilities.Constants;
+import com.example.techtitans.utilities.PreferenceManager;
 
 public class StartGameRulesActivity extends AppCompatActivity {
 
     private ActivityStartGameRulesBinding binding;
 
-    SharedPreferences prefs = null;
+//    SharedPreferences prefs = null;
+    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        preferenceManager = new PreferenceManager(getApplicationContext());
         binding = ActivityStartGameRulesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        prefs = getSharedPreferences("com.mycompany.myAppName", MODE_PRIVATE);
+//        prefs = getSharedPreferences("com.mycompany.myAppName", MODE_PRIVATE);
 
 
-        if (prefs.getBoolean("firstrun", true)) {
+        if (!preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)) {
+            preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
             // Do first run stuff here then set 'firstrun' as false
             //strat  DataActivity beacuase its your app first run
             // using the following line to edit/commit prefs
-            prefs.edit().putBoolean("firstrun", false).commit();
+//            prefs.edit().putBoolean("firstrun", false).commit();
             startActivity(new Intent(getApplicationContext(), GameRulesActivity.class));
             finish();
         } else {

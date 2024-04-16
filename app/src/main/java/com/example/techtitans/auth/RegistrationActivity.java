@@ -104,7 +104,7 @@ public class RegistrationActivity extends BaseActivity {
                     preferenceManager.putString(Constants.KEY_NAME, binding.inputName.getText().toString());
                     preferenceManager.putString(Constants.KEY_PHONE, binding.inputPhoneNumber.getMaskString().toString());
                     preferenceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
-                    Intent intent = new Intent(getApplicationContext(), StartGameRulesActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), GameRulesActivity.class);
                     startActivity(intent);
                     finish();
 
