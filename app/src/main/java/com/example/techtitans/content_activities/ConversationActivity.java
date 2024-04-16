@@ -80,9 +80,9 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
     private void listenConversations(){
-//        database.collection(Constants.KEY_COLLECTION_CONVERSATIONS)
-//                .whereEqualTo(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
-//                .addSnapshotListener(eventListener);
+        database.collection(Constants.KEY_COLLECTION_CONVERSATIONS)
+                .whereEqualTo(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
+                .addSnapshotListener(eventListener);
         database.collection(Constants.KEY_COLLECTION_CONVERSATIONS)
                 .whereEqualTo(Constants.KEY_RECEIVER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
                 .addSnapshotListener(eventListener);
