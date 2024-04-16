@@ -21,7 +21,11 @@
         <TextView
             android:id="@+id/tv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:text="Войти"
+            android:gravity="center"
+            android:textSize="38dp"
+            android:textColor="@color/white"/>
 
 
     </FrameLayout>
@@ -39,21 +43,25 @@
 
         <EditText
             android:id="@+id/input_name"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="212dp"
+            android:layout_height="53dp"
             android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="48dp"
             android:background="@drawable/input_background"
             android:elevation="@dimen/_10sdp"
             android:hint="Имя"
             android:inputType="text"
             android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome_frame"
-            tools:layout_editor_absoluteX="65dp" />
+            tools:ignore="NotSibling" />
 
         <EditText
             android:id="@+id/input_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="212dp"
+            android:layout_height="53dp"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/input_background"
@@ -61,14 +69,16 @@
             android:hint="Пароль"
             android:inputType="text"
             android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/input_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <FrameLayout
         android:id="@+id/buttonSignIn"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_12sdp"
+        android:layout_marginBottom="272dp"
         android:background="@drawable/input_background"
         android:elevation="@dimen/_50sdp"
         android:text="Войти"
