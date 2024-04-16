@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
     <!-- drawable/rectangle_1.xml -->
 <vector
 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,3 +23,5 @@ android:viewportHeight="60.66"
         />
 </group>
 </vector>
+
+

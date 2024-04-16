@@ -16,58 +16,145 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/input_name"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/input_background"
-            android:elevation="@dimen/_10sdp"
-            android:hint="Имя"
-            android:inputType="text"
-            android:paddingHorizontal="@dimen/_10sdp"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.vicmikhailau.maskededittext.MaskedEditText
-            android:id="@+id/input_phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:background="@drawable/input_background"
-            android:elevation="@dimen/_10sdp"
-            android:hint="+7 (000) 000-00-00"
-            app:mask="+7 (###) ###-##-##"
-            android:inputType="phone"
-            app:layout_constraintTop_toBottomOf="@id/input_name"
-            android:paddingHorizontal="@dimen/_10sdp" />
+        <FrameLayout
+            android:id="@+id/frame1"
+            app:layout_goneMarginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
 
+            <FrameLayout
+                android:id="@+id/wrapper1"
+                android:layout_marginTop="5dp"
+                android:layout_width="234dp"
+                android:layout_height="73dp"
+                android:elevation="@dimen/_60sdp"
+                android:layout_gravity="right"
+                android:background="@drawable/border_input"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="238dp"
+                android:layout_height="59dp"
+                android:layout_gravity="right"
+                android:background="@drawable/input_background"
+                android:elevation="@dimen/_10sdp"
+                android:hint="Имя"
+                android:textColor="@color/blue"
+                android:inputType="text"
+                android:paddingHorizontal="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="65dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame2"
+            android:layout_marginTop="30dp"
+            app:layout_goneMarginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/frame1"
+            tools:ignore="MissingConstraints">
+
+            <FrameLayout
+                android:id="@+id/wrapper2"
+                android:layout_marginTop="4dp"
+                android:layout_width="234dp"
+                android:layout_height="73dp"
+                android:elevation="@dimen/_60sdp"
+                android:layout_gravity="right"
+                android:background="@drawable/border_input"
+                tools:ignore="MissingConstraints" />
+
+            <com.vicmikhailau.maskededittext.MaskedEditText
+                android:id="@+id/input_phone_number"
+                android:layout_width="238dp"
+                android:layout_height="59dp"
+                android:layout_gravity="right"
+                android:background="@drawable/input_background"
+                android:elevation="@dimen/_10sdp"
+                android:hint="+7 (000) 000-00-00"
+                android:inputType="phone"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textColor="@color/blue"
+                app:layout_constraintTop_toBottomOf="@id/frame1"
+                app:mask="+7 (###) ###-##-##" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame3"
+            android:layout_marginTop="30dp"
+            app:layout_goneMarginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/frame2"
+            tools:ignore="MissingConstraints">
+
+        <FrameLayout
+            android:id="@+id/wrapper3"
+            android:layout_marginTop="5dp"
+            android:layout_width="234dp"
+            android:layout_height="73dp"
+            android:elevation="@dimen/_60sdp"
+            android:layout_gravity="right"
+            android:background="@drawable/border_input"
+            tools:ignore="MissingConstraints" />
         <EditText
             android:id="@+id/input_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="238dp"
+            android:layout_height="59dp"
+            android:layout_gravity="right"
             android:background="@drawable/input_background"
             android:elevation="@dimen/_10sdp"
+            android:textColor="@color/blue"
             android:hint="Пароль"
             android:inputType="textPassword"
             android:paddingHorizontal="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@id/input_phone_number" />
+            app:layout_constraintTop_toBottomOf="@id/frame2"
+            tools:layout_editor_absoluteX="65dp" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame4"
+            android:layout_marginTop="30dp"
+            app:layout_goneMarginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/frame3"
+            tools:ignore="MissingConstraints">
+
+        <FrameLayout
+            android:id="@+id/wrapper4"
+            android:layout_marginTop="5dp"
+            android:layout_width="234dp"
+            android:layout_height="73dp"
+            android:elevation="@dimen/_60sdp"
+            android:layout_gravity="right"
+            android:background="@drawable/border_input"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/input_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="238dp"
+            android:layout_height="59dp"
+            android:layout_gravity="right"
             android:background="@drawable/input_background"
             android:elevation="@dimen/_10sdp"
             android:hint="Подтвердите пароль"
             android:inputType="textPassword"
             android:paddingHorizontal="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@id/input_password" />
+            app:layout_constraintTop_toBottomOf="@id/frame3"
+            tools:layout_editor_absoluteX="64dp" />
+
+
+        </FrameLayout>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -105,6 +192,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
