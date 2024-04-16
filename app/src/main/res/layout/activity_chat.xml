@@ -95,6 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+
         <EditText
             android:id="@+id/inputMessage"
             android:layout_width="match_parent"
@@ -112,7 +113,6 @@
             android:paddingEnd="@dimen/_16sdp"
             android:textColor="@color/white"
             android:textColorHint="#EFF4EA" />
-
 
         <FrameLayout
             android:id="@+id/input_voice"

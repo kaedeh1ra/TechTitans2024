@@ -1,5 +1,6 @@
 package com.example.techtitans.content_activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -60,6 +65,7 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseFirestore database;
     private String conversationId = null;
     private Boolean isReceiverAvailable = false;
+    private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +95,7 @@ public class ChatActivity extends AppCompatActivity {
         message.put(Constants.KEY_RECEIVER_ID, receivedUser.id);
         message.put(Constants.KEY_MESSAGE, binding.inputMessage.getText().toString());
         message.put(Constants.KEY_TIMESTAMP, new Date());
-        message.put(Constants.KEY_SUCCESS, Ai.trainAndPredict());
+        message.put(Constants.KEY_SUCCESS, Words.result());
         database.collection(Constants.KEY_COLLECTION_CHAT).add(message);
         if (conversationId != null) {
             updateConversation(binding.inputMessage.getText().toString());
@@ -181,12 +187,35 @@ public class ChatActivity extends AppCompatActivity {
     private void setListeners() {
         binding.imageBack.setOnClickListener(view -> onBackPressed());
         binding.layoutSend.setOnClickListener(v -> sendMessage());
-//        binding.inputVoice.setOnClickListener(v -> sendVoiceMessage());
+        binding.inputVoice.setOnClickListener(v -> sendVoiceMessage());
     }
 
-//    private void sendVoiceMessage() {
-//            startSpeak();
-//    }
+    private void sendVoiceMessage() {
+        startSpeak();
+
+    }
+
+    private void startSpeak() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Speak now!");
+        // starting intent for result
+        activityResultLauncher.launch(intent);
+    }
+
+    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    // if result is not empty
+                    if (result.getResultCode() == Activity.RESULT_OK && result.getData()!=null) {
+                        // get data and append it to editText
+                        ArrayList<String> d=result.getData().getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                        binding.inputMessage.setText(d.get(0));
+                    }
+                }
+            });
 
 //    public void startSpeak() {
 //        Intent intent =  new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); // намерение для вызова формы обработки речи (ОР)
@@ -195,6 +224,8 @@ public class ChatActivity extends AppCompatActivity {
 //        startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE); // вызываем активность ОР
 //
 //    }
+
+
 
     private String getReadableDateTime(Date date) {
         return new SimpleDateFormat("MMMM dd, yyyy - hh:mm", Locale.getDefault()).format(date);
