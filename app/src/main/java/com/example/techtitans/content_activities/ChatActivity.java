@@ -16,7 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
+import com.example.techtitans.Ai;
+import com.example.techtitans.R;
+import com.example.techtitans.Words;
 import com.example.techtitans.adapters.ChatAdapter;
 import com.example.techtitans.classes.ChatMessage;
 import com.example.techtitans.classes.User;
@@ -58,7 +60,6 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseFirestore database;
     private String conversationId = null;
     private Boolean isReceiverAvailable = false;
-    private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,7 @@ public class ChatActivity extends AppCompatActivity {
         message.put(Constants.KEY_RECEIVER_ID, receivedUser.id);
         message.put(Constants.KEY_MESSAGE, binding.inputMessage.getText().toString());
         message.put(Constants.KEY_TIMESTAMP, new Date());
+        message.put(Constants.KEY_SUCCESS, Ai.trainAndPredict());
         database.collection(Constants.KEY_COLLECTION_CHAT).add(message);
         if (conversationId != null) {
             updateConversation(binding.inputMessage.getText().toString());
@@ -179,20 +181,20 @@ public class ChatActivity extends AppCompatActivity {
     private void setListeners() {
         binding.imageBack.setOnClickListener(view -> onBackPressed());
         binding.layoutSend.setOnClickListener(v -> sendMessage());
-        binding.inputVoice.setOnClickListener(v -> sendVoiceMessage());
+//        binding.inputVoice.setOnClickListener(v -> sendVoiceMessage());
     }
 
-    private void sendVoiceMessage() {
-            startSpeak();
-    }
+//    private void sendVoiceMessage() {
+//            startSpeak();
+//    }
 
-    public void startSpeak() {
-        Intent intent =  new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); // намерение для вызова формы обработки речи (ОР)
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM); // сюда он слушает и запоминает
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "What can you tell me?");
-        startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE); // вызываем активность ОР
-
-    }
+//    public void startSpeak() {
+//        Intent intent =  new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); // намерение для вызова формы обработки речи (ОР)
+//        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM); // сюда он слушает и запоминает
+//        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "What can you tell me?");
+//        startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE); // вызываем активность ОР
+//
+//    }
 
     private String getReadableDateTime(Date date) {
         return new SimpleDateFormat("MMMM dd, yyyy - hh:mm", Locale.getDefault()).format(date);
