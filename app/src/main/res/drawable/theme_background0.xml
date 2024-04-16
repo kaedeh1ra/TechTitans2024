@@ -15,12 +15,12 @@ android:viewportHeight="640"
         android:pathData="M0 0H360V640H0V0Z"
         />
     <group
-        android:translateX="1"
+        android:translateX="0.995"
         android:translateY="0"
         android:pivotX="180"
         android:pivotY="320"
-        android:scaleX="2"
-        android:scaleY="2"
+        android:scaleX="1.98"
+        android:scaleY="1.98"
         android:rotation="90"
         >
         <path
@@ -39,7 +39,7 @@ android:viewportHeight="640"
                         android:offset="0"
                         />
                     <item
-                        android:color="#000000"
+                        android:color="#2C505E"
                         android:offset="1"
                         />
                 </gradient>
@@ -48,5 +48,3 @@ android:viewportHeight="640"
     </group>
 </group>
 </vector>
-
-
