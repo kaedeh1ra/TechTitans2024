@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,7 +9,8 @@
         android:layout_width="match_parent"
         android:background="@drawable/theme_background_rounded"
         android:padding="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageProfile"
             android:layout_width="@dimen/_35sdp"

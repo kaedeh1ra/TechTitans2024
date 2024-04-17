@@ -8,22 +8,31 @@
     android:layout_height="match_parent"
     tools:context=".auth.GameRulesActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tele2displayserif_bold"
+        android:gravity="center"
+        android:text="ПРАВИЛА"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_35ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="24dp" />
+
     <LinearLayout
         android:layout_marginTop="@dimen/_60sdp"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:background="@drawable/background_content_bottom">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ПРАВИЛА"
-            android:textSize="@dimen/_35ssp"
-            android:gravity="center"/>
+
         <TextView
             android:layout_width="@dimen/_270sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/tele2displayserif_bold"
+            android:layout_marginTop="@dimen/_15ssp"
             android:gravity="center"
             android:text="Добро пожаловать, усталый путник, в бескрайние просторы IT-мира! Приготовьтесь отправиться в путешествие по кодам, схемам и цифровым приключениям. Вас ждут поиски, где байты становятся волшебством, а алгоритмы определяют судьбу. Вы готовы погрузиться в бесконечные глубины этой цифровой вселенной?"
             android:textColor="@color/black"/>
@@ -33,6 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:fontFamily="@font/tele2displayserif_bold"
+            android:textColor="@color/black"
             android:text='Основная цель квест-игры состоит в том, чтобы пройти различные испытания и квесты на IT-тематику, чтобы достичь конечной цели, такой как "Ядро IT-мира".'           android:layout_marginLeft="@dimen/_20sdp"
             />
 
@@ -43,6 +54,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/tele2displayserif_bold"
             android:background="@drawable/input_background"
             android:text="Пусть приключение начнется!"
             android:textColor="@color/white"
