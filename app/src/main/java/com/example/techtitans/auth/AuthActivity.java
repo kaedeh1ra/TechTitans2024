@@ -104,5 +104,6 @@ public class AuthActivity extends AppCompatActivity {
             return true;
         }
     }
+
     
 }
