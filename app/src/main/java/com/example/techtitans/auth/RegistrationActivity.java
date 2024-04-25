@@ -129,6 +129,8 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
+
+
     private void navigate(Class clazz){
         Intent intent = new Intent(getApplicationContext(), clazz);
         startActivity(intent);
