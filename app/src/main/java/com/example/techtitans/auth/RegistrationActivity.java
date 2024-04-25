@@ -99,7 +99,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     preferenceManager.putString(Constants.KEY_NAME, binding.inputName.getText().toString());
                     preferenceManager.putString(Constants.KEY_PHONE, binding.inputPhoneNumber.getMaskString().toString());
                     preferenceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
-                    navigate(ConversationActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ConversationActivity.class);
+                    startActivity(intent);
+                    finish();
 
                 })
                 .addOnFailureListener(exception -> {
@@ -122,17 +124,11 @@ public class RegistrationActivity extends AppCompatActivity {
             showToast("Подтвердите пароль");
             return false;
         } else if (!binding.inputConfirmPassword.getText().toString().equals(binding.inputPassword.getText().toString())) {
-            showToast("Пароли не совпадают");
+            showToast("Passwords aren't the same");
             return false;
         } else {
             return true;
         }
-    }
-
-    private void navigate(Class clazz){
-        Intent intent = new Intent(getApplicationContext(), clazz);
-        startActivity(intent);
-        finish();
     }
 
 }
