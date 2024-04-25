@@ -124,11 +124,19 @@ public class RegistrationActivity extends AppCompatActivity {
             showToast("Подтвердите пароль");
             return false;
         } else if (!binding.inputConfirmPassword.getText().toString().equals(binding.inputPassword.getText().toString())) {
-            showToast("Passwords aren't the same");
+            showToast("Пароли не совпадают");
             return false;
         } else {
             return true;
         }
+    }
+
+
+
+    private void navigate(Class clazz){
+        Intent intent = new Intent(getApplicationContext(), clazz);
+        startActivity(intent);
+        finish();
     }
 
 }
