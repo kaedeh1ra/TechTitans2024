@@ -178,7 +178,7 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
         memo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ConversationActivity.this, SecondActivity.class);
+                Intent intent = new Intent(ConversationActivity.this, MemoActivity.class);
                 startActivity(intent);
             }
         });
@@ -191,9 +191,35 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
             math.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(ConversationActivity.this, SecondActivity.class);
+                    Intent intent = new Intent(ConversationActivity.this, MathActivity.class);
                     startActivity(intent);
                 }
-            });
+            })};
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_conversation);
+
+                Button quiz = findViewById(R.id.quiz);
+                quiz.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(ConversationActivity.this, QuizActivity.class);
+                        startActivity(intent);
+                    }
+                })};
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                    super.onCreate(savedInstanceState);
+                    setContentView(R.layout.activity_conversation);
+
+                    Button slovo = findViewById(R.id.slovo);
+                    slovo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(ConversationActivity.this, SlovoActivity.class);
+                            startActivity(intent);
+                        }
+                    });
 
 }
