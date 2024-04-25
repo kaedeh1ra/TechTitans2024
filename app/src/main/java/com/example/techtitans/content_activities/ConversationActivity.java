@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -168,4 +169,31 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
         intent.putExtra(Constants.KEY_USER, user);
         startActivity(intent);
     }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_conversation);
+
+        Button memo = findViewById(R.id.memo);
+        memo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ConversationActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_conversation);
+
+            Button math = findViewById(R.id.math);
+            math.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ConversationActivity.this, SecondActivity.class);
+                    startActivity(intent);
+                }
+            });
+
 }
