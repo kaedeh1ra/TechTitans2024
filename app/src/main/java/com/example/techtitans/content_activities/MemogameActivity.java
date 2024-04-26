@@ -2,8 +2,8 @@ package com.example.techtitans.content_activities;
 
 import android.net.Uri;
 
-import org.secuso.privacyfriendlymemory.common.MemoGamePlayerFactory;
-import org.secuso.privacyfriendlymemory.R;
+
+import com.example.techtitans.R;
 
 import java.util.LinkedList;
 import java.util.List;
