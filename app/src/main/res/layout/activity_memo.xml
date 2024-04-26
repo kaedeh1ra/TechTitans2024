@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="196dp" />
+        tools:layout_editor_absoluteY="196dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/go1"
@@ -19,5 +20,6 @@
         android:layout_height="wrap_content"
         android:text="Button"
         tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="231dp" />
+        tools:layout_editor_absoluteY="231dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
