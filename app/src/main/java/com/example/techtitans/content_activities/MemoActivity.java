@@ -38,7 +38,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class MemoActivity extends AppCompatActivity implements ConversationListener {
+public class MemoActivity extends AppCompatActivity {
 
     ActivityMathBinding binding;
     private PreferenceManager preferenceManager;
