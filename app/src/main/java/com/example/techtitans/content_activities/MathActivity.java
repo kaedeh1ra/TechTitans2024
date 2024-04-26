@@ -48,7 +48,8 @@ public class MathActivity extends AppCompatActivity implements ConversationListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_conversation);
+        binding = ActivityMathBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         Button go2 = findViewById(R.id.go2);
         go2.setOnClickListener(new View.OnClickListener() {
@@ -59,4 +60,9 @@ public class MathActivity extends AppCompatActivity implements ConversationListe
             }
         });
     }
+
+    @Override
+    public void onCoversationClicked(User user) {
+
     }
+}
