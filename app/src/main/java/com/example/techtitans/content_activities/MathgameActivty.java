@@ -11,14 +11,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.techtitans.databinding.ActivityGamemathBinding;
 //import com.kastorcode.mathoperationsgame.R;
 //import com.kastorcode.mathoperationsgame.helpers.Navigate;
+
+import com.example.techtitans.databinding.ActivityMathBinding;
 
 import java.util.Locale;
 import java.util.Random;
 
 public class MathgameActivity extends AppCompatActivity {
+
+    private ActivityGamemathBinding binding;
 
     private static String operation;
     private static final Random random = new Random();
@@ -39,13 +43,15 @@ public class MathgameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed () {
-        Navigate.mainActivity(this, userScore);
+        super.onBackPressed();
+        //Navigate.mainActivity(this, userScore);
     }
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        binding = ActivityGamemathBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         setProps();
         setClickListeners();
         getQuestion();
@@ -54,16 +60,11 @@ public class MathgameActivity extends AppCompatActivity {
     private void setProps () {
         operation = getIntent().getStringExtra("operation");
         userScore = 0;
-        score = findViewById(R.id.score);
-        score.setText(String.valueOf(userScore));
+
+        binding.score.setText(String.valueOf(userScore));
         userLife = 3;
-        life = findViewById(R.id.life);
-        life.setText(String.valueOf(userLife));
-        time = findViewById(R.id.time);
-        question = findViewById(R.id.question);
-        answer = findViewById(R.answer);
-        ok = findViewById(R.id.ok);
-        next = findViewById(R.id.next);
+        binding.userlife.setText(String.valueOf(userLife));
+
     }
 
     private void setClickListeners () {
@@ -73,7 +74,7 @@ public class MathgameActivity extends AppCompatActivity {
                 getQuestion();
             }
             else {
-                Navigate.mainActivity(this, userScore);
+                //Navigate.mainActivity(this, userScore);
             }
         });
     }
@@ -150,6 +151,10 @@ public class MathgameActivity extends AppCompatActivity {
             }
         }
                 .start();
+    }
+    
+    private void Navigate(){
+        
     }
 
 }

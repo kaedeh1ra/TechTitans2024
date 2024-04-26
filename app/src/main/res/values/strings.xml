@@ -42,4 +42,9 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="score">счёт</string>
+    <string name="answer">Ответ</string>
+    <string name="net">Дальше</string>
+    <string name="time">Время:</string>
+    <string name="life">Жизнь</string>
 </resources>
