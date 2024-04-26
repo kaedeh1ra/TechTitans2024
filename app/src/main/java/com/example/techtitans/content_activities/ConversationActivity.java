@@ -72,6 +72,10 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
     private void setListeners() {
         binding.imageSignOut.setOnClickListener(v -> signOut());
         binding.fabNewChat.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), BotsActivity.class)));
+        binding.quiz.setOnClickListener(v -> navigate(QuizActivity.class));
+        binding.math.setOnClickListener(v -> navigate(MathActivity.class));
+        binding.memo.setOnClickListener(v -> navigate(MemoActivity.class));
+        binding.slovo.setOnClickListener(v -> navigate(SlovoActivity.class));
     }
 
     private void loadUserDetails() {
@@ -159,7 +163,7 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
                 })
                 .addOnFailureListener(e -> showToast("Unable to sign out"));
     }
-    private void Navigate(Class page){
+    private void navigate(Class page){
         Intent intent = new Intent(getApplicationContext(), page);
         startActivity(intent);
     }
@@ -169,57 +173,6 @@ public class ConversationActivity extends AppCompatActivity implements Conversat
         intent.putExtra(Constants.KEY_USER, user);
         startActivity(intent);
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_conversation);
 
-        Button memo = findViewById(R.id.memo);
-        memo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ConversationActivity.this, MemoActivity.class);
-                startActivity(intent);
-            }
-        });
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_conversation);
-
-            Button math = findViewById(R.id.math);
-            math.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(ConversationActivity.this, MathActivity.class);
-                    startActivity(intent);
-                }
-            })};
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_conversation);
-
-                Button quiz = findViewById(R.id.quiz);
-                quiz.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(ConversationActivity.this, QuizActivity.class);
-                        startActivity(intent);
-                    }
-                })};
-                @Override
-                protected void onCreate(Bundle savedInstanceState) {
-                    super.onCreate(savedInstanceState);
-                    setContentView(R.layout.activity_conversation);
-
-                    Button slovo = findViewById(R.id.slovo);
-                    slovo.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(ConversationActivity.this, SlovoActivity.class);
-                            startActivity(intent);
-                        }
-                    });
 
 }
